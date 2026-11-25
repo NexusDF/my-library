@@ -48,3 +48,16 @@ npm run build
 ```sh
 npm run lint
 ```
+
+## Публикация на GitHub Pages
+
+Сборка публикуется workflow `.github/workflows/deploy.yml` при пуше в `main` или `master`. Запуск вручную: вкладка Actions → «Публикация на GitHub Pages» → Run workflow.
+
+Один раз в репозитории на GitHub откройте Settings → Pages → Build and deployment и выберите Source: **GitHub Actions**.
+
+Адрес сайта:
+
+- репозиторий проекта: `https://<пользователь>.github.io/<репозиторий>/`
+- репозиторий `<пользователь>.github.io`: `https://<пользователь>.github.io/`
+
+Workflow сам подставляет этот путь в `base` Vite, поэтому маршруты Vue Router, manifest и service worker указывают в подпапку репозитория. Локально `npm run dev` по-прежнему открывает приложение из корня.
